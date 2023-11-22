@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UsuarioTI
+class UsuarioNoTI
 {
     /**
      * Handle an incoming request.

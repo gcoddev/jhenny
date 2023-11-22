@@ -199,16 +199,13 @@
                                                         value="{{ $int->id_interpretacion }}">
                                                     <input type="hidden" name="id_pago"
                                                         value="{{ $int->solicitud_pago->id_pago }}">
-                                                    {{-- <button type="submit" class="btn btn-sm btn-warning"
-                                                        data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                                        title="Terminar">
-                                                        <i class="bx bx-money"></i>Validar pago
-                                                    </button> --}}
-                                                    <button type="button" class="btn btn-sm btn-outline-info"
-                                                        data-bs-toggle="modal"
-                                                        data-bs-target="#verComprobante_{{ $int->id_interpretacion }}">
-                                                        <i class="bx bx-money"></i> Validar pago
-                                                    </button>
+                                                    @if ($int->solicitud_pago->id_pago)
+                                                        <button type="button" class="btn btn-sm btn-outline-info"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#verComprobante_{{ $int->id_interpretacion }}">
+                                                            <i class="bx bx-money"></i> Validar pago
+                                                        </button>
+                                                    @endif
 
                                                     <div class="modal modal-lg fade"
                                                         id="verComprobante_{{ $int->id_interpretacion }}" tabindex="-1"

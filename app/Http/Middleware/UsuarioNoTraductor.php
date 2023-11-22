@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UsuarioTraductor
+class UsuarioNoTraductor
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class UsuarioTraductor
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->id_role == 3) {
+        if (Auth::user()->id_role == 4 || Auth::user()->id_role == 5) {
             return back();
         }
         return $next($request);

@@ -270,11 +270,13 @@
                                                 </a>
                                             @endif
                                             @if ($sol->solicitud_pago->estado != 'PAGADO' && $sol->id_asignado)
-                                                <button type="button" class="btn btn-sm btn-outline-info"
-                                                    data-bs-toggle="modal"
-                                                    data-bs-target="#verComprobante_{{ $sol->id_solicitud }}">
-                                                    <i class="bx bx-money"></i> Validar pago
-                                                </button>
+                                                @if ($sol->solicitud_pago->id_pago)
+                                                    <button type="button" class="btn btn-sm btn-outline-info"
+                                                        data-bs-toggle="modal"
+                                                        data-bs-target="#verComprobante_{{ $sol->id_solicitud }}">
+                                                        <i class="bx bx-money"></i> Validar pago
+                                                    </button>
+                                                @endif
 
                                                 <div class="modal modal-lg fade"
                                                     id="verComprobante_{{ $sol->id_solicitud }}" tabindex="-1"
