@@ -112,12 +112,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <h5 class="mb-0">Traducciones asignadas</h5>
-                        {{-- <form class="ms-auto position-relative">
-                            <div class="position-absolute top-50 translate-middle-y search-icon px-3"><ion-icon
-                                    name="search-sharp"></ion-icon></div>
-                            <input class="form-control ps-5" type="text" placeholder="search">
-                        </form> --}}
+                        <h5 class="mb-0">Interpretaciones asignadas</h5>
                     </div>
                     <div class="table-responsive mt-3">
                         <table class="table align-middle mb-0" id="table-asignados">

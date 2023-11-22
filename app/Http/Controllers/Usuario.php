@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Interpretacion;
 use App\Models\Role;
 use App\Models\Solicitud;
 use App\Models\User;
@@ -14,7 +15,8 @@ class Usuario extends Controller
     public function dashboard()
     {
         $solicitudes = Solicitud::all();
-        return view('layouts.home', compact('solicitudes'));
+        $interpretaciones = Interpretacion::all();
+        return view('layouts.home', compact('solicitudes', 'interpretaciones'));
     }
 
     public function usuarios()
@@ -101,6 +103,7 @@ class Usuario extends Controller
             'estado_civil' => 'required',
             'profesion' => 'required|regex:/^[\pL\s\-]+$/u',
             'email' => 'required|email',
+            'celular' => 'required|numeric|min:7',
             'username' => 'required|alpha|min:4|unique:users',
             'password' => 'required|min:8',
             'confirmar_password' => 'required|min:8|same:password',
@@ -116,13 +119,21 @@ class Usuario extends Controller
         $nuevoUser->estado_civil = $request->input('estado_civil');
         $nuevoUser->profesion = $request->input('profesion');
         $nuevoUser->email = $request->input('email');
+        $nuevoUser->celular = $request->input('celular');
         $nuevoUser->username = $request->input('username');
         $nuevoUser->id_role = 5;
         $nuevoUser->password = bcrypt($request->input('password'));
         $nuevoUser->save();
 
         if (Auth::check()) {
-            return redirect()->route('usuarios')->with('mensaje', 'Usuario creado correctamente.');
+            if (Auth::user()->id_role != 5) {
+                return redirect()->route('usuarios')->with('mensaje', 'Usuario creado correctamente.');
+            } else {
+                Auth::logout();
+                $request->session()->invalidate();
+                $request->session()->regenerateToken();
+                return redirect()->route('login')->with('mensaje', 'Usuario creado correctamente.');
+            }
         } else {
             return redirect()->route('login')->with('mensaje', 'Usuario creado correctamente.');
         }

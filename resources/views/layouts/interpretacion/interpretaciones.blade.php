@@ -71,7 +71,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
-                        <h5 class="mb-0">Solicitudes</h5>
+                        <h5 class="mb-0">Solicitudes de interpretacion</h5>
                         {{-- <form class="ms-auto position-relative">
                             <div class="position-absolute top-50 translate-middle-y search-icon px-3"><ion-icon
                                     name="search-sharp"></ion-icon></div>
@@ -85,7 +85,7 @@
                                     <th>ID</th>
                                     <th>Idioma</th>
                                     <th>Titulo</th>
-                                    <th>Asignado</th>
+                                    <th>Interprete</th>
                                     <th>Estado de Pago</th>
                                     <th>Comprobante de pago</th>
                                     <th>Estado</th>
@@ -98,7 +98,20 @@
                                         <td>{{ $int->id_interpretacion }}</td>
                                         <td>{{ $int->idioma->nombre_idioma }}</td>
                                         <td>{{ $int->titulo_interpretacion }}</td>
-                                        <td>{{ $int->asignado ? $int->asignado->nombres . ' ' . $int->asignado->paterno . ' ' . $int->asignado->materno : '-' }}
+                                        <td class="d-flex justify-content-between align-items-center">
+                                            @if ($int->asignado)
+                                                {{ $int->asignado->nombres . ' ' . $int->asignado->paterno . ' ' . $int->asignado->materno }}
+                                                <span>
+                                                    <a href="mailto:{{ $int->asignado->email }}"class="btn btn-sm btn-info">
+                                                        <i class="bx bx-mail-send"></i>
+                                                    </a>
+                                                    <a href="{{ $int->asignado->email }}" class="btn btn-sm btn-success">
+                                                        <i class="bx bxl-whatsapp text-dark"></i>
+                                                    </a>
+                                                </span>
+                                            @else
+                                                -
+                                            @endif
                                         </td>
                                         <td>
                                             @if ($int->solicitud_pago->estado == 'PENDIENTE')
@@ -111,7 +124,8 @@
                                             @if ($int->solicitud_pago->comprobante_pago)
                                                 <span class="text-success">Enviado</span> &nbsp;
                                                 <a href="{{ asset('storage/comprobante/' . $int->solicitud_pago->comprobante_pago) }}"
-                                                    class="btn btn-sm btn-info" target="_blank"><i class="lni lni-eye"></i></a>
+                                                    class="btn btn-sm btn-info" target="_blank"><i
+                                                        class="lni lni-eye"></i></a>
                                             @else
                                                 <span class="text-danger">No enviado</span>
                                             @endif

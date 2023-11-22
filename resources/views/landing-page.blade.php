@@ -198,7 +198,7 @@
             <form class="main-form" method="POST" action="{{ route('post_nuevoUsuario') }}">
                 @csrf
                 <div class="row mt-5 ">
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                    <div class="col-12 col-sm-4 py-2 wow fadeInLeft">
                         <label for="ci">Cedula de Identidad:</label>
                         <input type="text" class="form-control" id="ci" name="ci" placeholder="CI"
                             value="{{ old('ci') }}">
@@ -206,11 +206,19 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <label for="expedido">Expedido Carnet:</label>
+                    <div class="col-12 col-sm-2 py-2 wow fadeInLeft">
+                        <label for="expedido">Expedido:</label>
                         <input type="text" class="form-control" id="expedido" name="expedido" placeholder="Expedido"
                             onkeyup="javascript:this.value=this.value.toUpperCase();" value="{{ old('expedido') }}">
                         @error('expedido')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                        <label for="nombres">Nombre completo:</label>
+                        <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres"
+                            value="{{ old('nombres') }}">
+                        @error('nombres')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -222,7 +230,7 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
                         <label for="materno">Apellido materno:</label>
                         <input type="text" class="form-control" id="materno" name="materno" placeholder="Apellido Materno"
                             value="{{ old('materno') }}">
@@ -231,26 +239,10 @@
                         @enderror
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-                        <label for="nombres">Nombre completo:</label>
-                        <input type="text" class="form-control" id="nombres" name="nombres" placeholder="Nombres"
-                            value="{{ old('nombres') }}">
-                        @error('nombres')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
                         <label for="fecha_nacimiento">Fecha de nacimiento:</label>
                         <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento"
                             placeholder="Fecha de Nacimiento" value="{{ old('fecha_nacimiento') }}">
                         @error('fecha_nacimiento')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
-                    </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-                        <label for="email">Direccion Email:</label>
-                        <input type="text" class="form-control" id="email" name="email" placeholder="Email"
-                            value="{{ old('email') }}">
-                        @error('email')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -266,7 +258,23 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
+                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
+                        <label for="email">Direccion Email:</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Email"
+                            value="{{ old('email') }}">
+                        @error('email')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                        <label for="celular">Numero de celular:</label>
+                        <input type="number" class="form-control" id="celular" name="celular" placeholder="Numero de celular"
+                            value="{{ old('celular') }}">
+                        @error('celular')
+                            <span class="text-danger">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
                         <label for="profesion">Profesión:</label>
                         <input type="text" class="form-control" id="profesion" name="profesion" placeholder="Profesion"
                             value="{{ old('profesion') }}">
@@ -283,7 +291,7 @@
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
-                    <div class="col-12 col-sm-6 py-2 wow fadeInRight">
+                    <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
                         <label for="password">Contraseña:</label>
                         <input type="password" class="form-control" id="password" name="password" placeholder="Contraseña">
                         @error('password')

@@ -52,7 +52,7 @@
                                         @enderror
                                     </div> --}}
                                     <div class="col-12">
-                                        <label class="form-label" for="titulo_interpretacion">Titulo de la solicitud <span
+                                        <label class="form-label" for="titulo_interpretacion">Titulo de la interpretacion <span
                                                 style="color: red">*</span></label>
                                         <input type="text" class="form-control" id="titulo_interpretacion"
                                             name="titulo_interpretacion">

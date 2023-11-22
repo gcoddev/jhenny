@@ -27,19 +27,17 @@
                 <div class="col-12 col-lg-1 col-xl-1 d-flex"></div>
                 <div class="col-12 col-lg-10 col-xl-10 d-flex">
                     <div class="card radius-10 w-100">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3">
-                                <h6 class="mb-0">Traducciones</h6>
+                        <div class="card-body px-5">
+                            <div class="d-flex align-items-center mb-3 row">
+                                <h4 class="mb-0 text-center col-12">Traducciones e Interpretaciones</h4>
+                                <br><br><br><hr>
                             </div>
                             <div class="row row-cols-1 row-cols-md-2 g-3 align-items-center">
-                                {{-- <div class="col-lg-7 col-xl-7 col-xxl-7 order-2">
-                                    <div id="chart6"></div>
-                                </div> --}}
-                                <div class="col-lg-12 col-xl-12 col-xxl-12">
+                                <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
                                     <div class="">
                                         <div class="mb-4">
                                             <h2 class="mb-0">{{ count($solicitudes) }}</h2>
-                                            <p class="mb-0">Total de traducciones</p>
+                                            <p class="mb-0">Total</p>
                                         </div>
                                         @php
                                             $sols = 0;
@@ -59,7 +57,7 @@
                                         @endphp
                                         <div class="d-flex align-items-start gap-3 mb-3">
                                             <div class="widget-icon-small rounded bg-light-purple text-purple">
-                                                <ion-icon name="gift-outline"></ion-icon>
+                                                <ion-icon name="book-outline"></ion-icon>
                                             </div>
                                             <div>
                                                 <p class="mb-1">Solicitudes de traducción</p>
@@ -77,10 +75,61 @@
                                         </div>
                                         <div class="d-flex align-items-start gap-3">
                                             <div class="widget-icon-small rounded bg-light-orange text-orange">
-                                                <ion-icon name="book-outline"></ion-icon>
+                                                <ion-icon name="book"></ion-icon>
                                             </div>
                                             <div>
                                                 <p class="mb-1">Traducciones completas</p>
+                                                <p class="mb-0 h5">{{ $entregados }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-lg-6 col-xl-6 col-xxl-6">
+                                    <div class="">
+                                        <div class="mb-4">
+                                            <h2 class="mb-0">{{ count($interpretaciones) }}</h2>
+                                            <p class="mb-0">Total</p>
+                                        </div>
+                                        @php
+                                            $ints = 0;
+                                            $pendientes = 0;
+                                            $entregados = 0;
+                                            foreach ($interpretaciones as $int) {
+                                                if ($int->estado_solicitud != 'ENTREGADO' && $int->id_asignado == null && $int->documento_solicitud_fin == null) {
+                                                    $ints++;
+                                                }
+                                                if ($int->estado_solicitud == 'ENTREGADO') {
+                                                    $entregados++;
+                                                }
+                                                if ($int->id_asignado != null && $int->documento_solicitud_fin == null) {
+                                                    $pendientes++;
+                                                }
+                                            }
+                                        @endphp
+                                        <div class="d-flex align-items-start gap-3 mb-3">
+                                            <div class="widget-icon-small rounded bg-light-purple text-purple">
+                                                <ion-icon name="book-outline"></ion-icon>
+                                            </div>
+                                            <div>
+                                                <p class="mb-1">Solicitudes de interpretacion</p>
+                                                <p class="mb-0 h5">{{ $ints }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3 mb-3">
+                                            <div class="widget-icon-small rounded bg-light-info text-info">
+                                                <ion-icon name="briefcase-outline"></ion-icon>
+                                            </div>
+                                            <div>
+                                                <p class="mb-1">Pendientes</p>
+                                                <p class="mb-0 h5">{{ $pendientes }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex align-items-start gap-3">
+                                            <div class="widget-icon-small rounded bg-light-orange text-orange">
+                                                <ion-icon name="book"></ion-icon>
+                                            </div>
+                                            <div>
+                                                <p class="mb-1">Interpretaciones hechas</p>
                                                 <p class="mb-0 h5">{{ $entregados }}</p>
                                             </div>
                                         </div>

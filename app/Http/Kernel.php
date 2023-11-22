@@ -64,6 +64,10 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
 
+        'usuario_no_admin' => \App\Http\Middleware\UsuarioNoAdmin::class,
+        'usuario_no_traductor' => \App\Http\Middleware\UsuarioNoTraductor::class,
+        'usuario_no_interprete' => \App\Http\Middleware\UsuarioNoInterprete::class,
+        'usuario_no_ti' => \App\Http\Middleware\UsuarioNoTI::class,
         'usuario_autenticado' => \App\Http\Middleware\UsuarioAutenticado::class,
         'usuario_no_autenticado' => \App\Http\Middleware\UsuarioNoAutenticado::class,
     ];

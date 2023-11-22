@@ -23,7 +23,7 @@
                     <div class="d-flex align-items-center">
                         <h5 class="mb-0">Reportes de interpretacion</h5>
                     </div>
-                    <div class="table-responsive mt-3">
+                    <div class="table-responsive mt-3 w-50 m-auto">
                         <table class="table align-middle">
                             <thead class="table-secondary">
                                 <tr>

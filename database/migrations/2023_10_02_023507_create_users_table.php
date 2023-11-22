@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('nombres');
             $table->date('fecha_nacimiento');
             $table->string('email');
+            $table->integer('celular')->length(10);
             $table->string('estado_civil');
             $table->string('profesion');
             $table->string('imagen_perfil')->nullable();

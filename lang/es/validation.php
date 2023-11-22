@@ -90,8 +90,8 @@ return [
     'max' => [
         'array' => 'The :attribute must not have more than :max items.',
         'file' => 'The :attribute must not be greater than :max kilobytes.',
-        'numeric' => 'The :attribute must not be greater than :max.',
-        'string' => 'El campo :attribute debe tener maximo :max caracteres.',
+        'numeric' => 'El campo :attribute debe tener máximo :max números.',
+        'string' => 'El campo :attribute debe tener máximo :max caracteres.',
     ],
     'max_digits' => 'The :attribute must not have more than :max digits.',
     'mimes' => 'The :attribute must be a file of type: :values.',
@@ -99,7 +99,7 @@ return [
     'min' => [
         'array' => 'The :attribute must have at least :min items.',
         'file' => 'The :attribute must be at least :min kilobytes.',
-        'numeric' => 'The :attribute must be at least :min.',
+        'numeric' => 'El campo :attribute debe tener al menos :min números.',
         'string' => 'El campo :attribute debe tener al menos :min caracteres.',
     ],
     'min_digits' => 'The :attribute must have at least :min digits.',
@@ -111,7 +111,7 @@ return [
     'multiple_of' => 'The :attribute must be a multiple of :value.',
     'not_in' => 'The selected :attribute is invalid.',
     'not_regex' => 'The :attribute format is invalid.',
-    'numeric' => 'The :attribute must be a number.',
+    'numeric' => 'El campo :attribute debe contener solo números.',
     'password' => [
         'letters' => 'The :attribute must contain at least one letter.',
         'mixed' => 'The :attribute must contain at least one uppercase and one lowercase letter.',
